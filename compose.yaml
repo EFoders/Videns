@@ -1,0 +1,124 @@
+# Videns with its mock feed: `docker compose up --build`, then http://127.0.0.1:8080
+#
+# Tests:           docker compose run --rm test
+# Faults on:       MOCK_FAULTS=malformed,gap,stall docker compose up --build
+# Faster picture:  MOCK_RATE=4 docker compose up --build
+#
+# Ports bind to loopback only: v1 has no authentication (VIDENS_SPEC.md section 15).
+
+name: videns
+
+x-hardening: &hardening
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: ["no-new-privileges:true"]
+  restart: unless-stopped
+
+services:
+  videns:
+    <<: *hardening
+    build: { context: ., target: runtime }
+    image: videns:dev
+    ports: ["127.0.0.1:${VIDENS_PORT:-8080}:8080"]
+    tmpfs: ["/tmp"]
+    environment:
+      VIDENS_FEED_UPSTREAM: http://mock-feed:8090
+      VIDENS_FEED: /picture/v0
+      # The basemap shown first; the reader can switch in the map's top-right corner.
+      # Choices come from config/basemaps.json: street, terrain, satellite (online; the tile
+      # servers see the area being viewed) and none (no map data, no requests).
+      VIDENS_BASEMAP: ${VIDENS_BASEMAP:-street}
+      VIDENS_ELLIPSE_CONFIDENCE: "0.95"
+      # The mock feed is a simulation, so its truth may be offered. Never for a real feed.
+      VIDENS_TRUTH_OVERLAY: "true"
+    # To change the basemap list, or give the scenario editor a private signature library
+    # (never committed), mount replacements:
+    # volumes:
+    #   - ./my-basemaps.json:/etc/videns/basemaps.json:ro
+    #   - /path/outside/the/repo/library:/etc/videns/library:ro
+    depends_on: [mock-feed]
+
+  mock-feed:
+    <<: *hardening
+    build: { context: ., target: mock-feed }
+    image: videns-mock-feed:dev
+    ports: ["127.0.0.1:${MOCK_FEED_PORT:-8090}:8090"]
+    environment:
+      MOCK_SEED: ${MOCK_SEED:-1}
+      MOCK_RATE: ${MOCK_RATE:-1}
+      MOCK_FAULTS: ${MOCK_FAULTS:-}
+
+  test:
+    build: { context: ., target: test }
+    image: videns-test:dev
+    profiles: [test]
+
+  # --- Browser tests: docker compose --profile e2e up --build --abort-on-container-exit --exit-code-from e2e
+  # One small viewer per situation the tests need, each against its own mock feed.
+
+  e2e-feed:
+    <<: *hardening
+    image: videns-mock-feed:dev
+    build: { context: ., target: mock-feed }
+    profiles: [e2e]
+
+  e2e-faulty-feed:
+    <<: *hardening
+    image: videns-mock-feed:dev
+    build: { context: ., target: mock-feed }
+    profiles: [e2e]
+    environment: { MOCK_FAULTS: "malformed,gap", MOCK_RATE: "10" }
+
+  e2e-stall-feed:
+    <<: *hardening
+    image: videns-mock-feed:dev
+    build: { context: ., target: mock-feed }
+    profiles: [e2e]
+    environment: { MOCK_FAULTS: "stall", MOCK_STALL_EVERY_S: "15", MOCK_STALL_FOR_S: "8" }
+
+  e2e-street: &e2e-viewer
+    <<: *hardening
+    image: videns:dev
+    build: { context: ., target: runtime }
+    profiles: [e2e]
+    tmpfs: ["/tmp"]
+    environment: { VIDENS_FEED_UPSTREAM: "http://e2e-feed:8090", VIDENS_TRUTH_OVERLAY: "true" }
+    depends_on: [e2e-feed]
+
+  e2e-none:
+    <<: *e2e-viewer
+    environment: { VIDENS_FEED_UPSTREAM: "http://e2e-feed:8090", VIDENS_BASEMAP: "none", VIDENS_TRUTH_OVERLAY: "true" }
+
+  e2e-faulty:
+    <<: *e2e-viewer
+    environment: { VIDENS_FEED_UPSTREAM: "http://e2e-faulty-feed:8090", VIDENS_BASEMAP: "none" }
+    depends_on: [e2e-faulty-feed]
+
+  e2e-stall:
+    <<: *e2e-viewer
+    environment: { VIDENS_FEED_UPSTREAM: "http://e2e-stall-feed:8090", VIDENS_BASEMAP: "none" }
+    depends_on: [e2e-stall-feed]
+
+  e2e-hang:
+    <<: *e2e-viewer
+    environment: { VIDENS_FEED_UPSTREAM: "http://e2e-feed:8090", VIDENS_BASEMAP: "hang" }
+    volumes: ["./tests/e2e/hang-basemaps.json:/etc/videns/basemaps.json:ro"]
+
+  e2e-nofeed:
+    <<: *e2e-viewer
+    environment: { VIDENS_FEED_UPSTREAM: "http://nowhere.invalid:8090", VIDENS_BASEMAP: "none" }
+    depends_on: []
+
+  e2e:
+    build: { context: ., target: e2e }
+    image: videns-e2e:dev
+    # The editor test writes its prototype export here, for tools/vectors/check_prototype.py.
+    volumes: ["./test-results:/app/test-results"]
+    profiles: [e2e]
+    depends_on:
+      e2e-street: { condition: service_healthy }
+      e2e-none: { condition: service_healthy }
+      e2e-faulty: { condition: service_healthy }
+      e2e-stall: { condition: service_healthy }
+      e2e-hang: { condition: service_healthy }
+      e2e-nofeed: { condition: service_healthy }

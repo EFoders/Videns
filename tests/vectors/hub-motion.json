@@ -1,0 +1,2459 @@
+{
+ "source": "vigilans-hub world.position_en and _switched_on",
+ "motion": [
+  {
+   "emitter": "static_with_hold",
+   "path_m": [
+    [
+     2000,
+     4000,
+     30
+    ]
+   ],
+   "speed_mps": 0.0,
+   "loop": false,
+   "t_s": 0.0,
+   "east_m": 2000.0,
+   "north_m": 4000.0
+  },
+  {
+   "emitter": "static_with_hold",
+   "path_m": [
+    [
+     2000,
+     4000,
+     30
+    ]
+   ],
+   "speed_mps": 0.0,
+   "loop": false,
+   "t_s": 1.0,
+   "east_m": 2000.0,
+   "north_m": 4000.0
+  },
+  {
+   "emitter": "static_with_hold",
+   "path_m": [
+    [
+     2000,
+     4000,
+     30
+    ]
+   ],
+   "speed_mps": 0.0,
+   "loop": false,
+   "t_s": 14.9,
+   "east_m": 2000.0,
+   "north_m": 4000.0
+  },
+  {
+   "emitter": "static_with_hold",
+   "path_m": [
+    [
+     2000,
+     4000,
+     30
+    ]
+   ],
+   "speed_mps": 0.0,
+   "loop": false,
+   "t_s": 15.0,
+   "east_m": 2000.0,
+   "north_m": 4000.0
+  },
+  {
+   "emitter": "static_with_hold",
+   "path_m": [
+    [
+     2000,
+     4000,
+     30
+    ]
+   ],
+   "speed_mps": 0.0,
+   "loop": false,
+   "t_s": 37.5,
+   "east_m": 2000.0,
+   "north_m": 4000.0
+  },
+  {
+   "emitter": "static_with_hold",
+   "path_m": [
+    [
+     2000,
+     4000,
+     30
+    ]
+   ],
+   "speed_mps": 0.0,
+   "loop": false,
+   "t_s": 100.0,
+   "east_m": 2000.0,
+   "north_m": 4000.0
+  },
+  {
+   "emitter": "static_with_hold",
+   "path_m": [
+    [
+     2000,
+     4000,
+     30
+    ]
+   ],
+   "speed_mps": 0.0,
+   "loop": false,
+   "t_s": 299.0,
+   "east_m": 2000.0,
+   "north_m": 4000.0
+  },
+  {
+   "emitter": "static_with_hold",
+   "path_m": [
+    [
+     2000,
+     4000,
+     30
+    ]
+   ],
+   "speed_mps": 0.0,
+   "loop": false,
+   "t_s": 300.0,
+   "east_m": 2000.0,
+   "north_m": 4000.0
+  },
+  {
+   "emitter": "static_with_hold",
+   "path_m": [
+    [
+     2000,
+     4000,
+     30
+    ]
+   ],
+   "speed_mps": 0.0,
+   "loop": false,
+   "t_s": 333.3,
+   "east_m": 2000.0,
+   "north_m": 4000.0
+  },
+  {
+   "emitter": "static_with_hold",
+   "path_m": [
+    [
+     2000,
+     4000,
+     30
+    ]
+   ],
+   "speed_mps": 0.0,
+   "loop": false,
+   "t_s": 600.0,
+   "east_m": 2000.0,
+   "north_m": 4000.0
+  },
+  {
+   "emitter": "static_with_hold",
+   "path_m": [
+    [
+     2000,
+     4000,
+     30
+    ]
+   ],
+   "speed_mps": 0.0,
+   "loop": false,
+   "t_s": 1234.5,
+   "east_m": 2000.0,
+   "north_m": 4000.0
+  },
+  {
+   "emitter": "static_with_hold",
+   "path_m": [
+    [
+     2000,
+     4000,
+     30
+    ]
+   ],
+   "speed_mps": 0.0,
+   "loop": false,
+   "t_s": 5000.0,
+   "east_m": 2000.0,
+   "north_m": 4000.0
+  },
+  {
+   "emitter": "hold_then_leg",
+   "path_m": [
+    [
+     0,
+     0,
+     300
+    ],
+    [
+     3600,
+     6235
+    ]
+   ],
+   "speed_mps": 8.0,
+   "loop": false,
+   "t_s": 0.0,
+   "east_m": 0.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "hold_then_leg",
+   "path_m": [
+    [
+     0,
+     0,
+     300
+    ],
+    [
+     3600,
+     6235
+    ]
+   ],
+   "speed_mps": 8.0,
+   "loop": false,
+   "t_s": 1.0,
+   "east_m": 0.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "hold_then_leg",
+   "path_m": [
+    [
+     0,
+     0,
+     300
+    ],
+    [
+     3600,
+     6235
+    ]
+   ],
+   "speed_mps": 8.0,
+   "loop": false,
+   "t_s": 14.9,
+   "east_m": 0.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "hold_then_leg",
+   "path_m": [
+    [
+     0,
+     0,
+     300
+    ],
+    [
+     3600,
+     6235
+    ]
+   ],
+   "speed_mps": 8.0,
+   "loop": false,
+   "t_s": 15.0,
+   "east_m": 0.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "hold_then_leg",
+   "path_m": [
+    [
+     0,
+     0,
+     300
+    ],
+    [
+     3600,
+     6235
+    ]
+   ],
+   "speed_mps": 8.0,
+   "loop": false,
+   "t_s": 37.5,
+   "east_m": 0.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "hold_then_leg",
+   "path_m": [
+    [
+     0,
+     0,
+     300
+    ],
+    [
+     3600,
+     6235
+    ]
+   ],
+   "speed_mps": 8.0,
+   "loop": false,
+   "t_s": 100.0,
+   "east_m": 0.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "hold_then_leg",
+   "path_m": [
+    [
+     0,
+     0,
+     300
+    ],
+    [
+     3600,
+     6235
+    ]
+   ],
+   "speed_mps": 8.0,
+   "loop": false,
+   "t_s": 299.0,
+   "east_m": 0.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "hold_then_leg",
+   "path_m": [
+    [
+     0,
+     0,
+     300
+    ],
+    [
+     3600,
+     6235
+    ]
+   ],
+   "speed_mps": 8.0,
+   "loop": false,
+   "t_s": 300.0,
+   "east_m": 0.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "hold_then_leg",
+   "path_m": [
+    [
+     0,
+     0,
+     300
+    ],
+    [
+     3600,
+     6235
+    ]
+   ],
+   "speed_mps": 8.0,
+   "loop": false,
+   "t_s": 333.3,
+   "east_m": 133.2061349724352,
+   "north_m": 230.70562543142594
+  },
+  {
+   "emitter": "hold_then_leg",
+   "path_m": [
+    [
+     0,
+     0,
+     300
+    ],
+    [
+     3600,
+     6235
+    ]
+   ],
+   "speed_mps": 8.0,
+   "loop": false,
+   "t_s": 600.0,
+   "east_m": 1200.0552700219382,
+   "north_m": 2078.429057940774
+  },
+  {
+   "emitter": "hold_then_leg",
+   "path_m": [
+    [
+     0,
+     0,
+     300
+    ],
+    [
+     3600,
+     6235
+    ]
+   ],
+   "speed_mps": 8.0,
+   "loop": false,
+   "t_s": 1234.5,
+   "east_m": 3600.0,
+   "north_m": 6235.0
+  },
+  {
+   "emitter": "hold_then_leg",
+   "path_m": [
+    [
+     0,
+     0,
+     300
+    ],
+    [
+     3600,
+     6235
+    ]
+   ],
+   "speed_mps": 8.0,
+   "loop": false,
+   "t_s": 5000.0,
+   "east_m": 3600.0,
+   "north_m": 6235.0
+  },
+  {
+   "emitter": "holds_everywhere",
+   "path_m": [
+    [
+     0,
+     0,
+     20
+    ],
+    [
+     1000,
+     0,
+     45
+    ],
+    [
+     1000,
+     1000,
+     10
+    ],
+    [
+     0,
+     1000
+    ]
+   ],
+   "speed_mps": 12.5,
+   "loop": false,
+   "t_s": 0.0,
+   "east_m": 0.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "holds_everywhere",
+   "path_m": [
+    [
+     0,
+     0,
+     20
+    ],
+    [
+     1000,
+     0,
+     45
+    ],
+    [
+     1000,
+     1000,
+     10
+    ],
+    [
+     0,
+     1000
+    ]
+   ],
+   "speed_mps": 12.5,
+   "loop": false,
+   "t_s": 1.0,
+   "east_m": 0.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "holds_everywhere",
+   "path_m": [
+    [
+     0,
+     0,
+     20
+    ],
+    [
+     1000,
+     0,
+     45
+    ],
+    [
+     1000,
+     1000,
+     10
+    ],
+    [
+     0,
+     1000
+    ]
+   ],
+   "speed_mps": 12.5,
+   "loop": false,
+   "t_s": 14.9,
+   "east_m": 0.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "holds_everywhere",
+   "path_m": [
+    [
+     0,
+     0,
+     20
+    ],
+    [
+     1000,
+     0,
+     45
+    ],
+    [
+     1000,
+     1000,
+     10
+    ],
+    [
+     0,
+     1000
+    ]
+   ],
+   "speed_mps": 12.5,
+   "loop": false,
+   "t_s": 15.0,
+   "east_m": 0.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "holds_everywhere",
+   "path_m": [
+    [
+     0,
+     0,
+     20
+    ],
+    [
+     1000,
+     0,
+     45
+    ],
+    [
+     1000,
+     1000,
+     10
+    ],
+    [
+     0,
+     1000
+    ]
+   ],
+   "speed_mps": 12.5,
+   "loop": false,
+   "t_s": 37.5,
+   "east_m": 218.75,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "holds_everywhere",
+   "path_m": [
+    [
+     0,
+     0,
+     20
+    ],
+    [
+     1000,
+     0,
+     45
+    ],
+    [
+     1000,
+     1000,
+     10
+    ],
+    [
+     0,
+     1000
+    ]
+   ],
+   "speed_mps": 12.5,
+   "loop": false,
+   "t_s": 100.0,
+   "east_m": 1000.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "holds_everywhere",
+   "path_m": [
+    [
+     0,
+     0,
+     20
+    ],
+    [
+     1000,
+     0,
+     45
+    ],
+    [
+     1000,
+     1000,
+     10
+    ],
+    [
+     0,
+     1000
+    ]
+   ],
+   "speed_mps": 12.5,
+   "loop": false,
+   "t_s": 299.0,
+   "east_m": 200.0,
+   "north_m": 1000.0
+  },
+  {
+   "emitter": "holds_everywhere",
+   "path_m": [
+    [
+     0,
+     0,
+     20
+    ],
+    [
+     1000,
+     0,
+     45
+    ],
+    [
+     1000,
+     1000,
+     10
+    ],
+    [
+     0,
+     1000
+    ]
+   ],
+   "speed_mps": 12.5,
+   "loop": false,
+   "t_s": 300.0,
+   "east_m": 187.5,
+   "north_m": 1000.0
+  },
+  {
+   "emitter": "holds_everywhere",
+   "path_m": [
+    [
+     0,
+     0,
+     20
+    ],
+    [
+     1000,
+     0,
+     45
+    ],
+    [
+     1000,
+     1000,
+     10
+    ],
+    [
+     0,
+     1000
+    ]
+   ],
+   "speed_mps": 12.5,
+   "loop": false,
+   "t_s": 333.3,
+   "east_m": 0.0,
+   "north_m": 1000.0
+  },
+  {
+   "emitter": "holds_everywhere",
+   "path_m": [
+    [
+     0,
+     0,
+     20
+    ],
+    [
+     1000,
+     0,
+     45
+    ],
+    [
+     1000,
+     1000,
+     10
+    ],
+    [
+     0,
+     1000
+    ]
+   ],
+   "speed_mps": 12.5,
+   "loop": false,
+   "t_s": 600.0,
+   "east_m": 0.0,
+   "north_m": 1000.0
+  },
+  {
+   "emitter": "holds_everywhere",
+   "path_m": [
+    [
+     0,
+     0,
+     20
+    ],
+    [
+     1000,
+     0,
+     45
+    ],
+    [
+     1000,
+     1000,
+     10
+    ],
+    [
+     0,
+     1000
+    ]
+   ],
+   "speed_mps": 12.5,
+   "loop": false,
+   "t_s": 1234.5,
+   "east_m": 0.0,
+   "north_m": 1000.0
+  },
+  {
+   "emitter": "holds_everywhere",
+   "path_m": [
+    [
+     0,
+     0,
+     20
+    ],
+    [
+     1000,
+     0,
+     45
+    ],
+    [
+     1000,
+     1000,
+     10
+    ],
+    [
+     0,
+     1000
+    ]
+   ],
+   "speed_mps": 12.5,
+   "loop": false,
+   "t_s": 5000.0,
+   "east_m": 0.0,
+   "north_m": 1000.0
+  },
+  {
+   "emitter": "last_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     5000,
+     0,
+     120
+    ],
+    [
+     5000,
+     5000
+    ]
+   ],
+   "speed_mps": 25.0,
+   "loop": false,
+   "t_s": 0.0,
+   "east_m": 0.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "last_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     5000,
+     0,
+     120
+    ],
+    [
+     5000,
+     5000
+    ]
+   ],
+   "speed_mps": 25.0,
+   "loop": false,
+   "t_s": 1.0,
+   "east_m": 25.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "last_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     5000,
+     0,
+     120
+    ],
+    [
+     5000,
+     5000
+    ]
+   ],
+   "speed_mps": 25.0,
+   "loop": false,
+   "t_s": 14.9,
+   "east_m": 372.5,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "last_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     5000,
+     0,
+     120
+    ],
+    [
+     5000,
+     5000
+    ]
+   ],
+   "speed_mps": 25.0,
+   "loop": false,
+   "t_s": 15.0,
+   "east_m": 375.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "last_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     5000,
+     0,
+     120
+    ],
+    [
+     5000,
+     5000
+    ]
+   ],
+   "speed_mps": 25.0,
+   "loop": false,
+   "t_s": 37.5,
+   "east_m": 937.5,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "last_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     5000,
+     0,
+     120
+    ],
+    [
+     5000,
+     5000
+    ]
+   ],
+   "speed_mps": 25.0,
+   "loop": false,
+   "t_s": 100.0,
+   "east_m": 2500.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "last_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     5000,
+     0,
+     120
+    ],
+    [
+     5000,
+     5000
+    ]
+   ],
+   "speed_mps": 25.0,
+   "loop": false,
+   "t_s": 299.0,
+   "east_m": 5000.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "last_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     5000,
+     0,
+     120
+    ],
+    [
+     5000,
+     5000
+    ]
+   ],
+   "speed_mps": 25.0,
+   "loop": false,
+   "t_s": 300.0,
+   "east_m": 5000.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "last_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     5000,
+     0,
+     120
+    ],
+    [
+     5000,
+     5000
+    ]
+   ],
+   "speed_mps": 25.0,
+   "loop": false,
+   "t_s": 333.3,
+   "east_m": 5000.0,
+   "north_m": 332.5000000000003
+  },
+  {
+   "emitter": "last_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     5000,
+     0,
+     120
+    ],
+    [
+     5000,
+     5000
+    ]
+   ],
+   "speed_mps": 25.0,
+   "loop": false,
+   "t_s": 600.0,
+   "east_m": 5000.0,
+   "north_m": 5000.0
+  },
+  {
+   "emitter": "last_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     5000,
+     0,
+     120
+    ],
+    [
+     5000,
+     5000
+    ]
+   ],
+   "speed_mps": 25.0,
+   "loop": false,
+   "t_s": 1234.5,
+   "east_m": 5000.0,
+   "north_m": 5000.0
+  },
+  {
+   "emitter": "last_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     5000,
+     0,
+     120
+    ],
+    [
+     5000,
+     5000
+    ]
+   ],
+   "speed_mps": 25.0,
+   "loop": false,
+   "t_s": 5000.0,
+   "east_m": 5000.0,
+   "north_m": 5000.0
+  },
+  {
+   "emitter": "final_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     2000,
+     0,
+     60
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": false,
+   "t_s": 0.0,
+   "east_m": 0.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "final_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     2000,
+     0,
+     60
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": false,
+   "t_s": 1.0,
+   "east_m": 10.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "final_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     2000,
+     0,
+     60
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": false,
+   "t_s": 14.9,
+   "east_m": 149.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "final_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     2000,
+     0,
+     60
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": false,
+   "t_s": 15.0,
+   "east_m": 150.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "final_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     2000,
+     0,
+     60
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": false,
+   "t_s": 37.5,
+   "east_m": 375.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "final_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     2000,
+     0,
+     60
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": false,
+   "t_s": 100.0,
+   "east_m": 1000.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "final_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     2000,
+     0,
+     60
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": false,
+   "t_s": 299.0,
+   "east_m": 2000.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "final_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     2000,
+     0,
+     60
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": false,
+   "t_s": 300.0,
+   "east_m": 2000.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "final_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     2000,
+     0,
+     60
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": false,
+   "t_s": 333.3,
+   "east_m": 2000.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "final_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     2000,
+     0,
+     60
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": false,
+   "t_s": 600.0,
+   "east_m": 2000.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "final_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     2000,
+     0,
+     60
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": false,
+   "t_s": 1234.5,
+   "east_m": 2000.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "final_hold",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     2000,
+     0,
+     60
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": false,
+   "t_s": 5000.0,
+   "east_m": 2000.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_holds",
+   "path_m": [
+    [
+     0,
+     0,
+     15
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000,
+     40
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 0.0,
+   "east_m": 0.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_holds",
+   "path_m": [
+    [
+     0,
+     0,
+     15
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000,
+     40
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 1.0,
+   "east_m": 0.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_holds",
+   "path_m": [
+    [
+     0,
+     0,
+     15
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000,
+     40
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 14.9,
+   "east_m": 0.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_holds",
+   "path_m": [
+    [
+     0,
+     0,
+     15
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000,
+     40
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 15.0,
+   "east_m": 0.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_holds",
+   "path_m": [
+    [
+     0,
+     0,
+     15
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000,
+     40
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 37.5,
+   "east_m": 225.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_holds",
+   "path_m": [
+    [
+     0,
+     0,
+     15
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000,
+     40
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 100.0,
+   "east_m": 850.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_holds",
+   "path_m": [
+    [
+     0,
+     0,
+     15
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000,
+     40
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 299.0,
+   "east_m": 2840.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_holds",
+   "path_m": [
+    [
+     0,
+     0,
+     15
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000,
+     40
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 300.0,
+   "east_m": 2850.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_holds",
+   "path_m": [
+    [
+     0,
+     0,
+     15
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000,
+     40
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 333.3,
+   "east_m": 3183.0000000000005,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_holds",
+   "path_m": [
+    [
+     0,
+     0,
+     15
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000,
+     40
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 600.0,
+   "east_m": 4000.0,
+   "north_m": 1850.0
+  },
+  {
+   "emitter": "loop_holds",
+   "path_m": [
+    [
+     0,
+     0,
+     15
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000,
+     40
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 1234.5,
+   "east_m": 164.0,
+   "north_m": 123.0
+  },
+  {
+   "emitter": "loop_holds",
+   "path_m": [
+    [
+     0,
+     0,
+     15
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000,
+     40
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 5000.0,
+   "east_m": 160.0,
+   "north_m": 120.0
+  },
+  {
+   "emitter": "loop_closed_hold",
+   "path_m": [
+    [
+     0,
+     0,
+     5
+    ],
+    [
+     4000,
+     0,
+     5
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "speed_mps": 7.0,
+   "loop": true,
+   "t_s": 0.0,
+   "east_m": 0.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_closed_hold",
+   "path_m": [
+    [
+     0,
+     0,
+     5
+    ],
+    [
+     4000,
+     0,
+     5
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "speed_mps": 7.0,
+   "loop": true,
+   "t_s": 1.0,
+   "east_m": 0.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_closed_hold",
+   "path_m": [
+    [
+     0,
+     0,
+     5
+    ],
+    [
+     4000,
+     0,
+     5
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "speed_mps": 7.0,
+   "loop": true,
+   "t_s": 14.9,
+   "east_m": 69.3,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_closed_hold",
+   "path_m": [
+    [
+     0,
+     0,
+     5
+    ],
+    [
+     4000,
+     0,
+     5
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "speed_mps": 7.0,
+   "loop": true,
+   "t_s": 15.0,
+   "east_m": 69.99999999999999,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_closed_hold",
+   "path_m": [
+    [
+     0,
+     0,
+     5
+    ],
+    [
+     4000,
+     0,
+     5
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "speed_mps": 7.0,
+   "loop": true,
+   "t_s": 37.5,
+   "east_m": 227.49999999999997,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_closed_hold",
+   "path_m": [
+    [
+     0,
+     0,
+     5
+    ],
+    [
+     4000,
+     0,
+     5
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "speed_mps": 7.0,
+   "loop": true,
+   "t_s": 100.0,
+   "east_m": 665.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_closed_hold",
+   "path_m": [
+    [
+     0,
+     0,
+     5
+    ],
+    [
+     4000,
+     0,
+     5
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "speed_mps": 7.0,
+   "loop": true,
+   "t_s": 299.0,
+   "east_m": 2058.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_closed_hold",
+   "path_m": [
+    [
+     0,
+     0,
+     5
+    ],
+    [
+     4000,
+     0,
+     5
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "speed_mps": 7.0,
+   "loop": true,
+   "t_s": 300.0,
+   "east_m": 2065.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_closed_hold",
+   "path_m": [
+    [
+     0,
+     0,
+     5
+    ],
+    [
+     4000,
+     0,
+     5
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "speed_mps": 7.0,
+   "loop": true,
+   "t_s": 333.3,
+   "east_m": 2298.1,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_closed_hold",
+   "path_m": [
+    [
+     0,
+     0,
+     5
+    ],
+    [
+     4000,
+     0,
+     5
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "speed_mps": 7.0,
+   "loop": true,
+   "t_s": 600.0,
+   "east_m": 3870.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_closed_hold",
+   "path_m": [
+    [
+     0,
+     0,
+     5
+    ],
+    [
+     4000,
+     0,
+     5
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "speed_mps": 7.0,
+   "loop": true,
+   "t_s": 1234.5,
+   "east_m": 536.4999999999998,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_closed_hold",
+   "path_m": [
+    [
+     0,
+     0,
+     5
+    ],
+    [
+     4000,
+     0,
+     5
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "speed_mps": 7.0,
+   "loop": true,
+   "t_s": 5000.0,
+   "east_m": 2684.999999999999,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_no_holds",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 0.0,
+   "east_m": 0.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_no_holds",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 1.0,
+   "east_m": 10.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_no_holds",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 14.9,
+   "east_m": 149.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_no_holds",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 15.0,
+   "east_m": 150.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_no_holds",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 37.5,
+   "east_m": 375.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_no_holds",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 100.0,
+   "east_m": 1000.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_no_holds",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 299.0,
+   "east_m": 2990.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_no_holds",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 300.0,
+   "east_m": 3000.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_no_holds",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 333.3,
+   "east_m": 3333.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_no_holds",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 600.0,
+   "east_m": 4000.0,
+   "north_m": 2000.0
+  },
+  {
+   "emitter": "loop_no_holds",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 1234.5,
+   "east_m": 345.0,
+   "north_m": 0.0
+  },
+  {
+   "emitter": "loop_no_holds",
+   "path_m": [
+    [
+     0,
+     0
+    ],
+    [
+     4000,
+     0
+    ],
+    [
+     4000,
+     3000
+    ]
+   ],
+   "speed_mps": 10.0,
+   "loop": true,
+   "t_s": 5000.0,
+   "east_m": 2000.0,
+   "north_m": 0.0
+  }
+ ],
+ "windows": [
+  {
+   "case": "none",
+   "active_windows_s": null,
+   "t_s": 0.0,
+   "on": true
+  },
+  {
+   "case": "none",
+   "active_windows_s": null,
+   "t_s": 29.9,
+   "on": true
+  },
+  {
+   "case": "none",
+   "active_windows_s": null,
+   "t_s": 30.0,
+   "on": true
+  },
+  {
+   "case": "none",
+   "active_windows_s": null,
+   "t_s": 59.9,
+   "on": true
+  },
+  {
+   "case": "none",
+   "active_windows_s": null,
+   "t_s": 60.0,
+   "on": true
+  },
+  {
+   "case": "none",
+   "active_windows_s": null,
+   "t_s": 100.0,
+   "on": true
+  },
+  {
+   "case": "none",
+   "active_windows_s": null,
+   "t_s": 160.4,
+   "on": true
+  },
+  {
+   "case": "none",
+   "active_windows_s": null,
+   "t_s": 160.5,
+   "on": true
+  },
+  {
+   "case": "none",
+   "active_windows_s": null,
+   "t_s": 299.9,
+   "on": true
+  },
+  {
+   "case": "none",
+   "active_windows_s": null,
+   "t_s": 300.0,
+   "on": true
+  },
+  {
+   "case": "none",
+   "active_windows_s": null,
+   "t_s": 1000.0,
+   "on": true
+  },
+  {
+   "case": "one",
+   "active_windows_s": [
+    [
+     60,
+     300
+    ]
+   ],
+   "t_s": 0.0,
+   "on": false
+  },
+  {
+   "case": "one",
+   "active_windows_s": [
+    [
+     60,
+     300
+    ]
+   ],
+   "t_s": 29.9,
+   "on": false
+  },
+  {
+   "case": "one",
+   "active_windows_s": [
+    [
+     60,
+     300
+    ]
+   ],
+   "t_s": 30.0,
+   "on": false
+  },
+  {
+   "case": "one",
+   "active_windows_s": [
+    [
+     60,
+     300
+    ]
+   ],
+   "t_s": 59.9,
+   "on": false
+  },
+  {
+   "case": "one",
+   "active_windows_s": [
+    [
+     60,
+     300
+    ]
+   ],
+   "t_s": 60.0,
+   "on": true
+  },
+  {
+   "case": "one",
+   "active_windows_s": [
+    [
+     60,
+     300
+    ]
+   ],
+   "t_s": 100.0,
+   "on": true
+  },
+  {
+   "case": "one",
+   "active_windows_s": [
+    [
+     60,
+     300
+    ]
+   ],
+   "t_s": 160.4,
+   "on": true
+  },
+  {
+   "case": "one",
+   "active_windows_s": [
+    [
+     60,
+     300
+    ]
+   ],
+   "t_s": 160.5,
+   "on": true
+  },
+  {
+   "case": "one",
+   "active_windows_s": [
+    [
+     60,
+     300
+    ]
+   ],
+   "t_s": 299.9,
+   "on": true
+  },
+  {
+   "case": "one",
+   "active_windows_s": [
+    [
+     60,
+     300
+    ]
+   ],
+   "t_s": 300.0,
+   "on": false
+  },
+  {
+   "case": "one",
+   "active_windows_s": [
+    [
+     60,
+     300
+    ]
+   ],
+   "t_s": 1000.0,
+   "on": false
+  },
+  {
+   "case": "two",
+   "active_windows_s": [
+    [
+     0,
+     30
+    ],
+    [
+     100,
+     160.5
+    ]
+   ],
+   "t_s": 0.0,
+   "on": true
+  },
+  {
+   "case": "two",
+   "active_windows_s": [
+    [
+     0,
+     30
+    ],
+    [
+     100,
+     160.5
+    ]
+   ],
+   "t_s": 29.9,
+   "on": true
+  },
+  {
+   "case": "two",
+   "active_windows_s": [
+    [
+     0,
+     30
+    ],
+    [
+     100,
+     160.5
+    ]
+   ],
+   "t_s": 30.0,
+   "on": false
+  },
+  {
+   "case": "two",
+   "active_windows_s": [
+    [
+     0,
+     30
+    ],
+    [
+     100,
+     160.5
+    ]
+   ],
+   "t_s": 59.9,
+   "on": false
+  },
+  {
+   "case": "two",
+   "active_windows_s": [
+    [
+     0,
+     30
+    ],
+    [
+     100,
+     160.5
+    ]
+   ],
+   "t_s": 60.0,
+   "on": false
+  },
+  {
+   "case": "two",
+   "active_windows_s": [
+    [
+     0,
+     30
+    ],
+    [
+     100,
+     160.5
+    ]
+   ],
+   "t_s": 100.0,
+   "on": true
+  },
+  {
+   "case": "two",
+   "active_windows_s": [
+    [
+     0,
+     30
+    ],
+    [
+     100,
+     160.5
+    ]
+   ],
+   "t_s": 160.4,
+   "on": true
+  },
+  {
+   "case": "two",
+   "active_windows_s": [
+    [
+     0,
+     30
+    ],
+    [
+     100,
+     160.5
+    ]
+   ],
+   "t_s": 160.5,
+   "on": false
+  },
+  {
+   "case": "two",
+   "active_windows_s": [
+    [
+     0,
+     30
+    ],
+    [
+     100,
+     160.5
+    ]
+   ],
+   "t_s": 299.9,
+   "on": false
+  },
+  {
+   "case": "two",
+   "active_windows_s": [
+    [
+     0,
+     30
+    ],
+    [
+     100,
+     160.5
+    ]
+   ],
+   "t_s": 300.0,
+   "on": false
+  },
+  {
+   "case": "two",
+   "active_windows_s": [
+    [
+     0,
+     30
+    ],
+    [
+     100,
+     160.5
+    ]
+   ],
+   "t_s": 1000.0,
+   "on": false
+  }
+ ]
+}

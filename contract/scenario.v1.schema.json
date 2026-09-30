@@ -1,0 +1,229 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:vigilans:contract:scenario.v1",
+  "title": "Scenario",
+  "description": "scenario.v1: a synthetic or realistic WORLD for the Vigilans simulator to run -- where sensors and emitters are, what the emitters really are, how they move and transmit (VIDENS_SPEC.md 16.3). The Vigilans prototype's scenario format carried forward whole, so every prototype scenario is valid here, plus optional additions: schema, labels, truth.side, legs, active, operator.declarations, truth_relations. Truth fields reach the simulator and scorer only, never the engine. Positions are east/north metres from `origin` in a WGS84 azimuthal equidistant frame (prototype ADR-0006). Owned by Vigilans; moves to the contract package with picture.v0.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["name", "duration_s", "sensors", "emitters"],
+  "properties": {
+    "schema": { "const": "scenario.v1" },
+    "name": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "description": { "type": "string", "maxLength": 4000 },
+    "seed": { "type": "integer" },
+    "duration_s": { "type": "number", "exclusiveMinimum": 0 },
+    "tick_s": { "type": "number", "exclusiveMinimum": 0 },
+    "origin": { "$ref": "#/definitions/origin" },
+    "propagation": { "$ref": "#/definitions/propagation" },
+    "sensors": { "type": "array", "minItems": 1, "items": { "$ref": "#/definitions/sensor" } },
+    "nets": { "type": "array", "items": { "$ref": "#/definitions/net" } },
+    "emitters": { "type": "array", "minItems": 1, "items": { "$ref": "#/definitions/emitter" } },
+    "engine": { "type": "object", "description": "Engine settings for the run, passed through unchanged." },
+    "expect": { "$ref": "#/definitions/expect" },
+    "operator": { "$ref": "#/definitions/operator" },
+    "truth_relations": { "type": "array", "items": { "$ref": "#/definitions/truth_relation" } }
+  },
+  "definitions": {
+    "point_m": {
+      "title": "PointM",
+      "description": "East, north in metres from the scenario origin.",
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "range": {
+      "title": "Range",
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "origin": {
+      "title": "Origin",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lat", "lon"],
+      "properties": {
+        "lat": { "type": "number", "minimum": -90, "maximum": 90 },
+        "lon": { "type": "number", "minimum": -180, "maximum": 180 }
+      }
+    },
+    "propagation": {
+      "title": "Propagation",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "model": { "const": "log_distance" },
+        "exponent": { "type": "number", "exclusiveMinimum": 0 },
+        "shadowing_sigma_db": { "type": "number", "minimum": 0 }
+      }
+    },
+    "sensor": {
+      "title": "ScenarioSensor",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "pos_m", "bearing_sigma_deg"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "label": { "type": "string", "maxLength": 64 },
+        "pos_m": { "$ref": "#/definitions/point_m" },
+        "alt_m": { "type": "number" },
+        "bearing_sigma_deg": { "type": "number", "exclusiveMinimum": 0 },
+        "elevation_sigma_deg": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "noise_floor_dbm": { "type": "number" },
+        "threshold_db": { "type": "number" },
+        "freq_range_hz": { "$ref": "#/definitions/range" },
+        "report_interval_s": { "type": "number", "exclusiveMinimum": 0 },
+        "p_miss": { "type": "number", "minimum": 0, "maximum": 1 },
+        "p_outlier": { "type": "number", "minimum": 0, "maximum": 1 },
+        "false_alarm_rate_hz": { "type": "number", "minimum": 0 }
+      }
+    },
+    "net": {
+      "title": "ScenarioNet",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "mean_tx_s": { "type": "number", "exclusiveMinimum": 0 },
+        "mean_gap_s": { "type": "number", "exclusiveMinimum": 0 },
+        "hub_reply_prob": { "type": "number", "minimum": 0, "maximum": 1 },
+        "turnaround_s": { "$ref": "#/definitions/range" }
+      }
+    },
+    "activity": {
+      "title": "Activity",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": { "type": "string", "enum": ["continuous", "periodic", "bursty", "net"] },
+        "period_s": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "on_s": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "mean_on_s": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "mean_off_s": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "net_id": { "type": ["string", "null"] },
+        "hub": { "type": "boolean" }
+      }
+    },
+    "side": {
+      "title": "Side",
+      "description": "The emitter's true side. Truth only: the engine never sees it.",
+      "type": "string",
+      "enum": ["friend", "hostile", "neutral", "civilian", "unknown"]
+    },
+    "truth": {
+      "title": "EmitterTruth",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "class_id": { "type": ["string", "null"] },
+        "role_id": { "type": ["string", "null"] },
+        "side": { "$ref": "#/definitions/side" }
+      }
+    },
+    "leg": {
+      "title": "Leg",
+      "description": "One leg of a path: from waypoint i to i+1 (the last leg returns to the first waypoint when looping). dwell_s is a pause at the leg's start.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "speed_mps": { "type": "number", "exclusiveMinimum": 0 },
+        "dwell_s": { "type": "number", "minimum": 0 }
+      }
+    },
+    "emitter": {
+      "title": "ScenarioEmitter",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "path_m", "freq_hz", "bandwidth_hz"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "label": { "type": "string", "maxLength": 64 },
+        "truth": { "$ref": "#/definitions/truth" },
+        "path_m": { "type": "array", "minItems": 1, "items": { "$ref": "#/definitions/point_m" } },
+        "alt_m": { "type": "number" },
+        "speed_mps": { "type": "number", "minimum": 0 },
+        "loop": { "type": "boolean" },
+        "freq_hz": { "type": "number", "exclusiveMinimum": 0 },
+        "bandwidth_hz": { "type": "number", "exclusiveMinimum": 0 },
+        "eirp_dbm": { "type": "number" },
+        "activity": { "$ref": "#/definitions/activity" },
+        "legs": { "type": "array", "items": { "$ref": "#/definitions/leg" } },
+        "active": {
+          "title": "ActiveWindow",
+          "description": "When the emitter exists. It appears at its first waypoint at from_s, and its path clock starts then.",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "from_s": { "type": "number", "minimum": 0 },
+            "until_s": { "type": "number", "exclusiveMinimum": 0 }
+          }
+        }
+      }
+    },
+    "expect": {
+      "title": "Expect",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cep95_m_max": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "ellipse_coverage": { "oneOf": [{ "$ref": "#/definitions/range" }, { "type": "null" }] },
+        "completeness_min": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "false_tracks_max": { "type": ["integer", "null"], "minimum": 0 },
+        "id_switches_max": { "type": ["integer", "null"], "minimum": 0 },
+        "class_accuracy_min": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "time_to_first_confirm_s_max": { "type": ["number", "null"], "exclusiveMinimum": 0 }
+      }
+    },
+    "operator": {
+      "title": "Operator",
+      "description": "What the operator tells the engine. A declaration is a rule an operator could really give: an observable (a frequency range) and an identity, with a reason. Never an emitter by name.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "declarations": {
+          "type": "array",
+          "items": {
+            "title": "Declaration",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "identity", "freq_hz", "reason"],
+            "properties": {
+              "id": { "type": "string", "minLength": 1, "maxLength": 64 },
+              "identity": { "type": "string", "enum": ["pending", "unknown", "assumed_friend", "friend", "neutral", "suspect", "hostile"] },
+              "freq_hz": { "$ref": "#/definitions/range" },
+              "reason": { "type": "string", "minLength": 1, "maxLength": 500 }
+            }
+          }
+        }
+      }
+    },
+    "truth_relation": {
+      "title": "TruthRelation",
+      "description": "A true relationship between emitters, for scoring grouping. Truth only.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "members"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "kind": { "type": "string", "enum": ["controller/controlled", "superior/subordinate", "peer", "co-sited"] },
+        "members": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "title": "RelationMember",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["emitter_id"],
+            "properties": {
+              "emitter_id": { "type": "string", "minLength": 1 },
+              "role": { "type": "string", "maxLength": 64 }
+            }
+          }
+        }
+      }
+    }
+  }
+}

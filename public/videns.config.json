@@ -1,0 +1,20 @@
+{
+  "feed": "/picture/v0",
+  "basemap": "street",
+  "basemaps": [
+    {
+      "id": "street",
+      "label": "Street",
+      "kind": "online",
+      "url": "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+      "attribution": "© OpenStreetMap contributors",
+      "max_zoom": 19,
+      "tone": "muted"
+    },
+    { "id": "none", "label": "None", "kind": "none" }
+  ],
+  "ellipse_confidence": 0.95,
+  "view": null,
+  "coordinate_format": "dd",
+  "truth_overlay": false
+}

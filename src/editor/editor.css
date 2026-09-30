@@ -1,0 +1,230 @@
+/* The scenario editor: shares the viewer's base styles (styles.css). */
+
+.modes {
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.mode {
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 12px;
+}
+
+a.mode:hover {
+  color: var(--text);
+}
+
+.mode--on {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.toolset {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.tool {
+  padding: 3px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface-2);
+  cursor: pointer;
+}
+
+.tool--on {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.palette {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.palette select,
+.field-row input,
+.field-row select,
+.field-row textarea,
+.member-row select,
+.member-row input {
+  min-width: 0;
+  padding: 3px 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  font: inherit;
+}
+
+.editor-map--sensor canvas,
+.editor-map--emitter canvas,
+.editor-map--path canvas,
+.editor-map--origin canvas {
+  cursor: crosshair;
+}
+
+.editor-help {
+  top: auto;
+  bottom: 62px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* --- Forms --------------------------------------------------------------------- */
+
+.field-row {
+  display: grid;
+  grid-template-columns: 110px 1fr auto;
+  align-items: center;
+  gap: 6px;
+  margin: 3px 0;
+}
+
+.field-row__label {
+  color: var(--muted);
+}
+
+.field-row__unit {
+  color: var(--muted);
+  font-size: 12px;
+  min-width: 28px;
+}
+
+.field-row--check {
+  grid-template-columns: auto 1fr;
+}
+
+.field-row--wide {
+  grid-template-columns: 110px 1fr;
+}
+
+.waypoints td {
+  padding: 2px 3px;
+}
+
+.cell-input {
+  width: 100%;
+  min-width: 56px;
+  padding: 2px 4px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text);
+  font: inherit;
+  font-size: 12px;
+}
+
+.member-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.hears {
+  color: var(--ok);
+}
+
+.deaf {
+  color: var(--muted);
+}
+
+.panel__foot {
+  padding: 8px 12px;
+  border-top: 1px solid var(--border);
+}
+
+/* --- Lists --------------------------------------------------------------------- */
+
+.list-row {
+  display: block;
+  width: 100%;
+  padding: 5px 6px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.list-row:hover {
+  background: var(--surface-2);
+}
+
+.side {
+  padding: 0 6px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  font-size: 11px;
+}
+
+.side--friend {
+  color: #7dd3fc;
+}
+.side--hostile {
+  color: #f87171;
+}
+.side--neutral {
+  color: #86efac;
+}
+.side--civilian {
+  color: #f0abfc;
+}
+.side--unknown {
+  color: #fde047;
+}
+
+.issue-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.issue {
+  display: block;
+  width: 100%;
+  margin-bottom: 4px;
+  padding: 6px 8px;
+  border: 0;
+  border-left: 3px solid var(--muted);
+  border-radius: 3px;
+  background: var(--surface-2);
+  text-align: left;
+  cursor: pointer;
+}
+
+.issue--error {
+  border-left-color: var(--bad);
+}
+
+.issue--warning {
+  border-left-color: var(--warn);
+}
+
+/* --- Notice after export or open ----------------------------------------------- */
+
+.notice {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: min(560px, calc(100% - 40px));
+  padding: 12px 14px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: rgb(17 22 27 / 96%);
+  box-shadow: 0 6px 24px rgb(0 0 0 / 50%);
+}
+
+.notice ul {
+  margin: 6px 0 10px;
+  padding-left: 18px;
+}

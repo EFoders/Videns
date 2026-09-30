@@ -1,0 +1,8 @@
+node_modules
+dist
+src/contract/generated
+.git
+.github
+*.log
+.env
+.env.*

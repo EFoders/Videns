@@ -1,0 +1,35 @@
+#!/bin/sh
+# Sourced by the nginx entrypoint before templates are rendered (*.envsh files are sourced,
+# so these exports reach envsubst). Derives the security headers from the basemap list:
+#
+#   VIDENS_CSP_TILE_ORIGINS  the extra origins the page may load from: exactly the https
+#                            origins of the online basemaps in the list, nothing else
+#                            (VIDENS_SPEC.md rule 14)
+#   VIDENS_REFERRER_POLICY   no-referrer, except strict-origin when any online basemap is
+#                            offered, because tile usage policies ask for a Referer; only
+#                            the origin is sent
+#
+# A bad setting stops the container: a viewer that silently drops its basemaps, or its
+# security policy, is worse than one that does not start.
+
+VIDENS_BASEMAPS_FILE="${VIDENS_BASEMAPS_FILE:-/etc/videns/basemaps.json}"
+if [ ! -r "$VIDENS_BASEMAPS_FILE" ]; then
+    echo "19-videns-env: cannot read the basemap list $VIDENS_BASEMAPS_FILE" >&2
+    exit 1
+fi
+if ! grep -q "\"id\"[[:space:]]*:[[:space:]]*\"${VIDENS_BASEMAP:-}\"" "$VIDENS_BASEMAPS_FILE"; then
+    echo "19-videns-env: VIDENS_BASEMAP='${VIDENS_BASEMAP:-}' is not an id in $VIDENS_BASEMAPS_FILE" >&2
+    exit 1
+fi
+
+VIDENS_CSP_TILE_ORIGINS=$(grep -o '"url"[[:space:]]*:[[:space:]]*"https://[^/"]*' "$VIDENS_BASEMAPS_FILE" | sed 's/.*"//' | sort -u | tr '\n' ' ')
+VIDENS_CSP_TILE_ORIGINS="${VIDENS_CSP_TILE_ORIGINS% }"
+if [ -n "$VIDENS_CSP_TILE_ORIGINS" ]; then
+    VIDENS_REFERRER_POLICY="strict-origin"
+    echo "19-videns-env: online basemaps offered; the page may load tiles from: $VIDENS_CSP_TILE_ORIGINS"
+else
+    VIDENS_REFERRER_POLICY="no-referrer"
+    echo "19-videns-env: no online basemaps offered; no third-party requests"
+fi
+
+export VIDENS_BASEMAPS_FILE VIDENS_CSP_TILE_ORIGINS VIDENS_REFERRER_POLICY

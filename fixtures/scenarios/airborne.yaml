@@ -1,0 +1,73 @@
+# An emitter above the ground, and sensors that can measure how far above (ADR-0016).
+#
+# The skeleton geometry deliberately, so this isolates one variable: the emitter sits at
+# 3000 m instead of on the deck, and two of the three sensors have the vertical aperture
+# needed to resolve an elevation angle. S3 does not, which is the realistic case — most
+# direction-finding equipment cannot measure elevation, and the engine has to produce the
+# same horizontal answer either way.
+#
+# What to expect from the height: at roughly 15 km slant range and 0.4 degrees of
+# elevation uncertainty, height is good to something like 100 m. That is enough to say
+# "airborne" and nowhere near enough to call an altitude. Anything reading the number
+# should treat it that way.
+name: airborne
+description: One elevated emitter, two sensors that can measure elevation and one that cannot.
+seed: 42
+duration_s: 60
+tick_s: 1.0
+origin: {lat: 50.0, lon: -105.0}
+
+propagation:
+  model: log_distance
+  exponent: 2.0
+  shadowing_sigma_db: 0.0
+
+sensors:
+  - id: S1
+    pos_m: [0, 0]
+    alt_m: 0
+    bearing_sigma_deg: 0.5
+    elevation_sigma_deg: 0.4     # has vertical aperture
+    noise_floor_dbm: -110
+    threshold_db: 6
+    report_interval_s: 1.0
+  - id: S2
+    pos_m: [9000, 1500]
+    alt_m: 250                   # on higher ground, so its own height matters
+    bearing_sigma_deg: 0.5
+    elevation_sigma_deg: 0.4
+    noise_floor_dbm: -110
+    threshold_db: 6
+    report_interval_s: 1.0
+  - id: S3
+    pos_m: [4000, -6000]
+    alt_m: 0
+    bearing_sigma_deg: 0.5
+    # no elevation_sigma_deg: azimuth only, like most real equipment
+    noise_floor_dbm: -110
+    threshold_db: 6
+    report_interval_s: 1.0
+
+emitters:
+  - id: E1
+    truth: {class_id: sig.vhf_net, role_id: null}
+    path_m: [[12000, 9000]]
+    alt_m: 3000
+    speed_mps: 0
+    freq_hz: 45.2e6
+    bandwidth_hz: 25.0e3
+    eirp_dbm: 40
+    activity: {type: continuous}
+
+engine:
+  confirm_hits: 3
+  confirm_window_s: 60
+
+expect:
+  # Horizontal performance is the skeleton's, loosened only for the 0.5 degree bearings.
+  # Height does not enter the horizontal fix, so if these move, something coupled that
+  # should not have.
+  cep95_m_max: 400
+  ellipse_coverage: [0.80, 1.0]
+  completeness_min: 1.0
+  false_tracks_max: 0

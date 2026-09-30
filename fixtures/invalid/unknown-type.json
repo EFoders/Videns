@@ -1,0 +1,10 @@
+{
+  "reason": "A message type the contract does not define.",
+  "expect": "unknown message type",
+  "message": {
+    "schema": "picture.v0",
+    "type": "tracks",
+    "run_id": "fixture",
+    "seq": 1
+  }
+}

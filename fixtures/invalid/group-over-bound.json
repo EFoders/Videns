@@ -1,0 +1,37 @@
+{
+  "reason": "A group cannot be more confident than its members' identities allow.",
+  "expect": "exceeds the member identity bound",
+  "message": {
+    "schema": "picture.v0",
+    "type": "snapshot",
+    "run_id": "fixture",
+    "seq": 0,
+    "t": "2026-01-01T00:01:00.000Z",
+    "entities": [],
+    "sensors": [],
+    "cot": [],
+    "groups": [
+      {
+        "group_id": "G1",
+        "kind": "peer",
+        "members": [
+          {
+            "entity_id": "E1"
+          },
+          {
+            "entity_id": "E2"
+          }
+        ],
+        "confidence": 0.9,
+        "member_identity_bound": 0.6,
+        "evidence": [
+          {
+            "type": "temporal_coupling",
+            "summary": "E2 keys up within 2 s of E1 in 18 of 20 transmissions."
+          }
+        ],
+        "state": "published"
+      }
+    ]
+  }
+}

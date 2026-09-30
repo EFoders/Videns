@@ -1,0 +1,71 @@
+# Videns: static bundle plus the picture feed, on one origin (VIDENS_SPEC.md section 5).
+# ${VIDENS_...} values are substituted at container start; nginx's own $variables are not.
+
+server {
+    listen 8080;
+    root /usr/share/nginx/html;
+
+    # Resolve the feed at request time, so a feed container that restarts with a new
+    # address is found again rather than proxied to its old one.
+    resolver ${NGINX_LOCAL_RESOLVERS} valid=10s ipv6=off;
+    set $feed_upstream ${VIDENS_FEED_UPSTREAM};
+
+    location = /healthz {
+        access_log off;
+        default_type text/plain;
+        return 200 "ok\n";
+    }
+
+    location = /videns.config.json {
+        alias /tmp/videns/videns.config.json;
+        default_type application/json;
+        add_header Cache-Control "no-store" always;
+        include /tmp/headers.inc;
+    }
+
+    location /picture/ {
+        proxy_pass $feed_upstream;
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_set_header Host $host;
+        # Server-Sent Events: no buffering, no caching, long reads.
+        proxy_buffering off;
+        proxy_cache off;
+        proxy_read_timeout 1h;
+        add_header Cache-Control "no-store" always;
+        include /tmp/headers.inc;
+    }
+
+    # Simulation truth: a separate channel from the picture, from the same feed upstream.
+    # The viewer uses it only for simulated runs, and only when the config offers it.
+    location /truth/ {
+        proxy_pass $feed_upstream;
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_set_header Host $host;
+        proxy_buffering off;
+        proxy_cache off;
+        proxy_read_timeout 1h;
+        add_header Cache-Control "no-store" always;
+        include /tmp/headers.inc;
+    }
+
+    # The scenario editor's signature library: the synthetic one from the image, or a
+    # deployment's own mounted over /etc/videns/library -- never committed (spec 16.2).
+    location /library/ {
+        alias /etc/videns/library/;
+        add_header Cache-Control "no-store" always;
+        include /tmp/headers.inc;
+    }
+
+    location /assets/ {
+        add_header Cache-Control "public, max-age=31536000, immutable" always;
+        include /tmp/headers.inc;
+    }
+
+    location / {
+        try_files $uri /index.html;
+        add_header Cache-Control "no-cache" always;
+        include /tmp/headers.inc;
+    }
+}

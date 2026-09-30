@@ -1,0 +1,53 @@
+# One UAS control link moving at 15 m/s. Tests whether the tracker keeps up with a
+# target that does not sit still.
+name: mover
+description: A UAS control link crossing the area at 15 m/s.
+seed: 43
+duration_s: 600
+tick_s: 1.0
+origin: {lat: 50.0, lon: -105.0}
+
+propagation:
+  exponent: 2.2
+  shadowing_sigma_db: 3.0
+
+sensors:
+  - id: S1
+    pos_m: [0, 0]
+    bearing_sigma_deg: 2.0
+    freq_range_hz: [20.0e6, 3.0e9]
+    report_interval_s: 1.0
+    p_miss: 0.05
+  - id: S2
+    pos_m: [12000, 0]
+    bearing_sigma_deg: 2.0
+    freq_range_hz: [20.0e6, 3.0e9]
+    report_interval_s: 1.0
+    p_miss: 0.05
+  - id: S3
+    pos_m: [6000, 10000]
+    bearing_sigma_deg: 2.0
+    freq_range_hz: [20.0e6, 3.0e9]
+    report_interval_s: 1.0
+    p_miss: 0.05
+
+emitters:
+  - id: E1
+    truth: {class_id: sig.uas_control, role_id: null}
+    path_m: [[2000, 4000], [11000, 6500]]
+    speed_mps: 15.0
+    freq_hz: 2.44e9
+    bandwidth_hz: 10.0e6
+    # 37 dBm, not 30: at 30 the link sits at about 5 dB SNR against a 6 dB threshold,
+    # so shadowing decided whether each report existed and half of them vanished. Groups
+    # then held one sensor, produced no fix, and the tracker fragmented one emitter into
+    # several. Marginal detection is worth testing, but not in the scenario meant to test
+    # association - `sparse` and `intermittent` carry that case.
+    eirp_dbm: 37
+    activity: {type: continuous}
+expect:
+  # Measured CEP95 175 m, coverage 0.91 on a 15 m/s target.
+  cep95_m_max: 400
+  ellipse_coverage: [0.80, 1.0]
+  completeness_min: 1.0
+  false_tracks_max: 0

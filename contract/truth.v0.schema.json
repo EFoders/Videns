@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:vigilans:contract:truth.v0",
+  "title": "TruthFrame",
+  "description": "truth.v0: where a SIMULATOR put its emitters at picture time t. A separate channel from picture.v0, which never carries truth (VIDENS_SPEC.md 5, 8.7): the engine must not see it, and a viewer draws it only for simulated runs, in a style reserved for it. UNSTABLE, like picture.v0.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "type", "run_id", "t", "emitters"],
+  "properties": {
+    "schema": { "const": "truth.v0" },
+    "type": { "const": "truth" },
+    "run_id": { "type": "string", "minLength": 1, "maxLength": 128, "description": "The picture run this truth belongs to." },
+    "t": { "type": "string", "format": "date-time", "pattern": "Z$" },
+    "emitters": {
+      "type": "array",
+      "maxItems": 5000,
+      "items": {
+        "title": "TruthEmitter",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["emitter_id", "lat", "lon", "active"],
+        "properties": {
+          "emitter_id": { "type": "string", "minLength": 1, "maxLength": 128 },
+          "lat": { "type": "number", "minimum": -90, "maximum": 90 },
+          "lon": { "type": "number", "minimum": -180, "maximum": 180 },
+          "alt_m": { "type": "number" },
+          "active": { "type": "boolean", "description": "Transmitting at t. A silent emitter still has a true position." },
+          "entity_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "description": "The picture entity the simulator or a scorer associated with this emitter, if one did. Videns never makes this association itself."
+          }
+        }
+      }
+    }
+  }
+}

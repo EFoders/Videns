@@ -1,0 +1,59 @@
+# Synthetic signature library for the scenario editor, in the Vigilans prototype's format
+# (Vigilans-prototype signatures/signatures.yaml). Every entry is invented: band ranges are
+# broad and publicly documented, nothing names real equipment, and no entry describes a
+# real system's parameters (VIDENS_SPEC.md rule 16, 16.2 rule 5).
+#
+# A deployment's own library is mounted over this directory from outside the repository
+# and is never committed.
+version: 1
+
+signatures:
+  - id: sig.vhf_net
+    label: VHF tactical net
+    category: ground
+    affiliation_default: unknown
+    required:
+      freq_hz: [30.0e6, 88.0e6]
+    features:
+      bandwidth_hz: {range: [12.5e3, 30.0e3], weight: 1.0}
+      activity: {pattern: bursty, mean_on_s: [2, 20], weight: 1.0}
+
+  - id: sig.uas_control
+    label: UAS control link
+    category: air
+    affiliation_default: unknown
+    required:
+      freq_hz: [2.400e9, 2.4835e9]
+    features:
+      bandwidth_hz: {range: [1.0e6, 20.0e6], weight: 1.0}
+      activity: {pattern: continuous, weight: 1.0}
+
+  - id: sig.fires_net
+    label: Fire-support net (synthetic)
+    category: ground
+    affiliation_default: unknown
+    required:
+      freq_hz: [30.0e6, 88.0e6]
+    features:
+      bandwidth_hz: {range: [12.5e3, 30.0e3], weight: 0.5}
+      activity: {pattern: bursty, mean_on_s: [1, 8], weight: 1.0}
+
+  - id: sig.uas_video
+    label: UAS video downlink (synthetic)
+    category: air
+    affiliation_default: unknown
+    required:
+      freq_hz: [5.725e9, 5.850e9]
+    features:
+      bandwidth_hz: {range: [10.0e6, 20.0e6], weight: 1.0}
+      activity: {pattern: continuous, weight: 1.0}
+
+  - id: sig.civil_broadcast
+    label: Civil FM broadcast
+    category: ground
+    affiliation_default: neutral
+    required:
+      freq_hz: [88.0e6, 108.0e6]
+    features:
+      bandwidth_hz: {range: [150.0e3, 250.0e3], weight: 1.0}
+      activity: {pattern: continuous, weight: 1.0}

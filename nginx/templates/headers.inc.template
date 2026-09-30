@@ -1,0 +1,9 @@
+# Security headers for every page and asset, included per location (an add_header in a
+# location replaces the server's, so they are repeated here rather than inherited).
+# Rule 14: nothing from any other origin except, when offered, the online basemaps'
+# tile servers; and no eval. MapLibre runs its worker from a blob: wrapper around a
+# same-origin module, hence worker-src blob:.
+add_header Content-Security-Policy "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob: ${VIDENS_CSP_TILE_ORIGINS}; worker-src 'self' blob:; connect-src 'self' ${VIDENS_CSP_TILE_ORIGINS}; font-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'" always;
+add_header X-Content-Type-Options nosniff always;
+add_header Referrer-Policy ${VIDENS_REFERRER_POLICY} always;
+add_header Cross-Origin-Opener-Policy same-origin always;

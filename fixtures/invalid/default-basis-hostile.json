@@ -1,0 +1,58 @@
+{
+  "reason": "An affiliation nobody declared is Unknown, never anything else.",
+  "expect": "/upsert/entities/0/affiliation/identity",
+  "message": {
+    "schema": "picture.v0",
+    "type": "delta",
+    "run_id": "fixture",
+    "seq": 5,
+    "t": "2026-01-01T00:01:00.000Z",
+    "upsert": {
+      "entities": [
+        {
+          "entity_id": "E9",
+          "state": "confirmed",
+          "affiliation": {
+            "identity": "hostile",
+            "basis": "default",
+            "reasons": []
+          },
+          "symbol": {
+            "sidc": "SHGP-----------"
+          },
+          "position": {
+            "lat": 50.01,
+            "lon": -105.01
+          },
+          "position_uncertainty": {
+            "basis": "measured",
+            "cov_en_m2": {
+              "ee": 2500,
+              "en": 0,
+              "nn": 900
+            }
+          },
+          "freq_hz": 400000000,
+          "bandwidth_hz": 12500,
+          "first_seen": "2026-01-01T00:01:00.000Z",
+          "last_seen": "2026-01-01T00:01:00.000Z",
+          "sources": [
+            {
+              "source_id": "SRC-A",
+              "observations": 3
+            }
+          ],
+          "classification": {
+            "status": "unclassified",
+            "reason": "Not enough transmissions observed."
+          },
+          "library": {
+            "available": true,
+            "name": "synthetic",
+            "version": "0.1.0"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,90 @@
+# Four stations sharing a VHF net, watched by three DF sensors.
+# Net members take turns, which is what keeps co-channel ghosts out of the picture
+# (build plan Section 8.2).
+name: static_net
+description: Four-station VHF net observed by three DF sensors.
+seed: 42
+duration_s: 900
+tick_s: 1.0
+origin: {lat: 50.0, lon: -105.0}
+
+propagation:
+  model: log_distance
+  exponent: 2.7
+  shadowing_sigma_db: 4.0
+
+sensors:
+  - id: S1
+    pos_m: [0, 0]
+    bearing_sigma_deg: 2.0
+    noise_floor_dbm: -110
+    threshold_db: 6
+    report_interval_s: 1.0
+    p_miss: 0.05
+    false_alarm_rate_hz: 0.01
+  - id: S2
+    pos_m: [9000, 1500]
+    bearing_sigma_deg: 2.0
+    noise_floor_dbm: -110
+    threshold_db: 6
+    report_interval_s: 1.0
+    p_miss: 0.05
+    false_alarm_rate_hz: 0.01
+  - id: S3
+    pos_m: [4000, -6000]
+    bearing_sigma_deg: 2.5
+    noise_floor_dbm: -110
+    threshold_db: 6
+    report_interval_s: 1.0
+    p_miss: 0.05
+    false_alarm_rate_hz: 0.01
+
+nets:
+  - id: N1
+    mean_tx_s: 6
+    mean_gap_s: 20
+    hub_reply_prob: 0.8
+    turnaround_s: [1.0, 3.0]
+
+emitters:
+  - id: E1
+    truth: {class_id: sig.vhf_net, role_id: role.c2_node}
+    path_m: [[12000, 9000]]
+    freq_hz: 45.2e6
+    bandwidth_hz: 25.0e3
+    eirp_dbm: 40
+    activity: {type: net, net_id: N1, hub: true}
+  - id: E2
+    truth: {class_id: sig.vhf_net}
+    path_m: [[14500, 7000]]
+    freq_hz: 45.2e6
+    bandwidth_hz: 25.0e3
+    eirp_dbm: 37
+    activity: {type: net, net_id: N1, hub: false}
+  - id: E3
+    truth: {class_id: sig.vhf_net}
+    path_m: [[10500, 6200]]
+    freq_hz: 45.2e6
+    bandwidth_hz: 25.0e3
+    eirp_dbm: 37
+    activity: {type: net, net_id: N1, hub: false}
+  - id: E4
+    truth: {class_id: sig.vhf_net}
+    path_m: [[13200, 11000]]
+    freq_hz: 45.2e6
+    bandwidth_hz: 25.0e3
+    eirp_dbm: 37
+    activity: {type: net, net_id: N1, hub: false}
+
+engine:
+  group_window_s: 2.0
+expect:
+  # Measured CEP95 1276 m, coverage 0.52. Both are poor, and deliberately recorded rather
+  # than tuned away: four stations 2-4 km apart share one channel, which is at the edge of
+  # what single-hypothesis association can separate (ADR-0013). The coverage band starts at
+  # 0.40 because the honest current answer is that this picture's uncertainty is
+  # optimistic here. Raising it is a v2 job for the tracker, not a number to edit.
+  cep95_m_max: 2000
+  ellipse_coverage: [0.40, 1.0]
+  completeness_min: 0.75
+  false_tracks_max: 1

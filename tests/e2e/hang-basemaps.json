@@ -1,0 +1,11 @@
+[
+  {
+    "id": "hang",
+    "label": "Hanging",
+    "kind": "online",
+    "url": "https://10.255.255.1/{z}/{x}/{y}.png",
+    "attribution": "test: a tile server that never answers",
+    "max_zoom": 19
+  },
+  { "id": "none", "label": "None", "kind": "none" }
+]

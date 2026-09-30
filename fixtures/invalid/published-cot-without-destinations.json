@@ -1,0 +1,28 @@
+{
+  "reason": "Published CoT says where it went.",
+  "expect": "destinations",
+  "message": {
+    "schema": "picture.v0",
+    "type": "cot",
+    "run_id": "fixture",
+    "seq": 6,
+    "t": "2026-01-01T00:01:00.000Z",
+    "record": {
+      "object": {
+        "kind": "entity",
+        "id": "E9"
+      },
+      "built_t": "2026-01-01T00:01:00.000Z",
+      "events": [
+        {
+          "uid": "vigilans.E9",
+          "type": "a-u-G",
+          "xml": "<event/>"
+        }
+      ],
+      "disposition": {
+        "status": "published"
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+# Synthetic role rules, in the Vigilans prototype's format. The editor offers these ids as an
+# emitter's true role; labels are hedged and carry no targeting language.
+version: 1
+
+roles:
+  - id: role.c2_node
+    label: Likely C2 node
+  - id: role.uas_operator
+    label: Likely UAS operator position
+  - id: role.fires_position
+    label: Possible fires position
