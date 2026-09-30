@@ -5,10 +5,6 @@ and uncertainty, why Vigilans thinks so, which entities are operating together, 
 changed over time — and, for any object, the exact CoT Vigilans built for it. The
 specification is `../specs/VIDENS_SPEC.md`.
 
-**Status: Phases 0–4 complete (2026-09-30), paused until Vigilans publishes the picture.**
-Until then Videns runs against a mock feed that plays a synthetic scenario live. Everything
-is synthetic, at an arbitrary neutral origin.
-
 ## Run it
 
 Docker is the only requirement; nothing is installed on the host.
