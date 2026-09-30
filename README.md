@@ -103,10 +103,3 @@ tests/  tests/e2e/            unit tests; Playwright browser tests
 nginx/  Dockerfile  compose.yaml
 ```
 
-## Rules that shape the code
-
-Videns displays and never decides; uncertainty is always drawn and never invented (an
-unreported one gets a `?` and no region); affiliation is Vigilans', shown with its basis;
-the CoT shown is Vigilans' bytes; a group is never surer than its members; a merge is shown
-as a merge, not a vanishing symbol; truth is a separate channel and never pairs itself with
-entities; a viewer with nothing to show says why. See spec §4.
